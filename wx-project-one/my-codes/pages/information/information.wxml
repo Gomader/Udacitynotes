@@ -1,0 +1,17 @@
+<view class="ifo-title">{{title}}</view>
+
+<view class='ifo-publisher'>
+  <text decode="{{true}}" space="{{true}}">{{publisher}}&nbsp;&nbsp;&nbsp;{{time}}</text>
+</view>
+<view class='ifo-read'>阅读 {{readtimes}}</view>
+
+<view class='info-page'>
+  <view wx:for='{{texts}}'>
+    <view wx:if="{{item.type == 'strong'}}" class='info-strong'>{{item.text}}</view>
+    <image wx:elif="{{item.type == 'image'}}" class='info-pc' src='{{item.text}}' mode='widthFix'></image>
+    <view wx:else class='info-p'>{{item.text}}</view>
+  </view>
+</view>
+
+
+

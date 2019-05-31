@@ -1,0 +1,32 @@
+<view class='category-column'>
+  <button class='category-unchoosed' bindtap='changeCategory' wx:for="{{categoryList}}" wx:key="{{item}}" data-id="{{item}}" >
+    <view wx:if="{{item == nowcategory}}" class='category-choosed'>{{item}}</view>
+    <view wx:else class='category-unchoosed'>{{item}}</view>
+  </button>
+</view>
+
+<view>
+  <modal title='服务器未响应' cancel-text='关闭' confirm-text='确定' bindconfirm='regetnews' bindcancel='regetnews' hidden='{{hidden}}'>请下拉刷新页面</modal>
+</view>
+
+<view class='first-news' data-id='{{firstnewsifo[0].id}}' bindtap='tonewsifo'>
+  <image class='firstnews-bg' src='/images/backg.jpg'></image>
+  <image class='hot-icon' src='/images/hot.png'></image>
+  <image class='firstnews-pc' src='{{firstnewsifo[0].picture}}' mode='scaleToFill'></image>
+  <view class='firstnews-text'>{{firstnewsifo[0].title}}</view>
+  <view class='firstnews-publisher'>
+    <text decode="{{true}}" space="{{true}}">{{firstnewsifo[0].publisher}}&nbsp;&nbsp;&nbsp;{{firstnewsifo[0].time}}</text>
+  </view>
+</view>
+
+<scroll-view scroll-y>
+  <view class='news-list'>
+    <view class="news-item" wx:for="{{nextnewsifo}}" data-id='{{item.nextid}}' bindtap='tonewsifo'>
+      <view class='news-text'>{{item.nextstitle}}</view>
+      <image class='news-pc' src='{{item.nextspicture}}'></image>
+      <view class='news-publisher'>
+        <text decode="{{true}}" space="{{true}}">{{item.nextspublisher}}&nbsp;&nbsp;&nbsp;{{item.nexttime}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
