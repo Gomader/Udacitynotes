@@ -49,6 +49,7 @@ Page({
         })
       }
     }
+    console.log(texts)
     this.setData({
       title:title,
       time:time,
